@@ -1,0 +1,9 @@
+{
+  "prete":"Prête à garder le trésor ! ",
+  "depart":"$(0) est parti ... ;w;",
+  "arrivee":"Bienvenue à toi $(0) ! \n Je t'invite à lire le règlement ^w^",
+  "enregistrementROC":"Votre OC à correctement été enregistré ^w^",
+  "error":{
+    "general":"Il semblerais qu'un problème soit survenu ..."
+  }
+}

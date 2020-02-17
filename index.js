@@ -4,11 +4,14 @@ let fs = require(`fs`);
 
 const client = new Client();
 
-token = fs.readFileSync("token.txt", 'utf8');
+token = fs.readFileSync("dataBase/token.txt", 'utf8');
 token = token.split('\n')
 
+strings = fs.readFileSync("string.json", 'utf8');
+strings = JSON.parse(strings)
+
 client.on('ready',function (){
-	console.log('Ready!');
+	console.log(strings["prete"]);
 });
 
 client.on('message',function(message){
@@ -17,19 +20,25 @@ client.on('message',function(message){
   for (var x in lignes) {
     spl.push(lignes[x].split(' '))
   }
+
   if(spl[0][0]=="!oc"){
-    if(msg.attachments.first().filename === `png`){//Download only png (customize this)
-            download(msg.attachments.first().url);//Function I will show later
-    }
+    // if(message.attachments.first().filename === `png`){//Download only png (customize this)
+    //         download(msg.attachments.first().url);//Function I will show later
+    // }
     result = {
-      proprietaire : message.author.id,
       nom : spl[0][1],
       description : message.content.replace(spl[0][0]+" "+spl[0][1],""),
       image : "null"
     }
-    console.log(result);
-    console.log(spl[0][0]+spl[0][1]);
-    message.channel.send(result.description)
+
+		let donnees = JSON.stringify(result)
+		fs.writeFile('dataBase/OC/'+message.author.id+'.json', donnees, function(erreur) {
+    	if (erreur) {
+        console.log(erreur)
+			}else{
+				message.channel.send(strings["enregistrementROC"])
+			}
+		});
   }
 });
 
