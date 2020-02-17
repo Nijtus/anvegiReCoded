@@ -4,6 +4,9 @@ let fs = require(`fs`);
 
 const client = new Client();
 
+token = fs.readFileSync("token.txt", 'utf8');
+token = token.split('\n')
+
 client.on('ready',function (){
 	console.log('Ready!');
 });
@@ -39,4 +42,4 @@ function download(url,nom){
 
 
 
-client.login('NTcxNDA2MTczODIwMDI2ODkw.Xkl2cg.Joq5P6bA7a6F-9QHn6VkZl8doO0');
+client.login(token[0]);
