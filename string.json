@@ -4,6 +4,7 @@
   "arrivee":"Bienvenue à toi $(0) ! \n Je t'invite à lire le règlement ^w^",
   "enregistrementROC":"Votre OC à correctement été enregistré ^w^",
   "error":{
-    "general":"Il semblerais qu'un problème soit survenu ..."
+    "general":"Il semblerais qu'un problème soit survenu ...",
+    "fomatInvalide":"L'image fournit ne semble pas être du bon format ;w;\n Elle ne sera pas enregistrer"
   }
 }
